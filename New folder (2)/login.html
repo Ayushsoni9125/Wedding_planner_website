@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    
+</head>
+<body>
+    <div class="login" id="login" style="padding: 18rem 2rem; text-align: center; background-image: url(https://www.haringphotography.com/wp-content/uploads/2023/03/Miami-Beach-Indian-wedding-Photos-65-scaled.jpg); opacity: 80%;">
+                <div style="font-size: xx-large; color:black;">
+                    <h1 style="text-align: center;">Login Page</h1>
+                     <form id="myForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" placeholder="Enter your Name">
+    <span id="nameError" class="error"></span><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="Enter your Email">
+    <span id="emailError" class="error"></span><br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" placeholder="Enter your Password">
+    <span id="passwordError" class="error"></span><br><br>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" placeholder="Enter your Age">
+    <span id="ageError" class="error"></span><br><br>
+
+    <button type="submit" onclick="validateForm()">Submit</button>
+  </form>
+
+  <script>
+    function validateForm() {
+      
+      document.getElementById("nameError").textContent = "";
+      document.getElementById("emailError").textContent = "";
+      document.getElementById("passwordError").textContent = "";
+      document.getElementById("ageError").textContent = "";
+
+      let isValid = true;
+
+      
+      const name = document.getElementById("name").value.trim();
+      if (name === "") {
+        document.getElementById("nameError").textContent = "Name is required.";
+        isValid = false;
+      }
+
+      
+      const email = document.getElementById("email").value.trim();
+      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (email === "") {
+        document.getElementById("emailError").textContent = "Email is required.";
+        isValid = false;
+      } else if (!emailPattern.test(email)) {
+        document.getElementById("emailError").textContent = "Invalid email format.";
+        isValid = false;
+      }
+
+      
+      const password = document.getElementById("password").value.trim();
+      if (password === "") {
+        document.getElementById("passwordError").textContent = "Password is required.";
+        isValid = false;
+      } else if (password.length < 6) {
+        document.getElementById("passwordError").textContent = "Password must be at least 6 characters long.";
+        isValid = false;
+      }
+
+      
+      const age = document.getElementById("age").value.trim();
+      if (age === "") {
+        document.getElementById("ageError").textContent = "Age is required.";
+        isValid = false;
+      } else if (isNaN(age) || age <= 0) {
+        document.getElementById("ageError").textContent = "Age must be a positive number.";
+        isValid = false;
+      }
+
+      
+      if (isValid) {
+        alert("Form submitted successfully!");
+      }
+    }
+  </script>
+                </div>
+            </div>
+            <div class="footer">
+                <p>Contact Us: <strong>+91-8769598767</strong></p>
+                <p>Email: <a href="#">goldenknots@455.com</a></p>
+                <div class="social-icons">
+                    <a href="#">Facebook</a> |
+                    <a href="#" >Instagram</a>
+                </div>
+            </div>
+            
+</body>
+</html>
